@@ -6,7 +6,8 @@ venv/
 .env
 
 # uploads
-uploads/
+uploads/*
+!uploads/.gitkeep
 
 # IDE
 .idea/
