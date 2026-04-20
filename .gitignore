@@ -1,0 +1,23 @@
+# venv
+venv/
+.venv/
+
+# env
+.env
+
+# uploads
+uploads/
+
+# IDE
+.idea/
+.vscode/
+
+# macOS
+.DS_Store
+
+# pycache
+__pycache__/
+*.py[cod]
+
+# db
+*.db
