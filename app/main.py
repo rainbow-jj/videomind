@@ -6,6 +6,7 @@ import os
 
 from app.core.config import settings
 from app.api.routes import video, chat
+from app.core.db import engine, Base
 
 # 创建上传目录
 os.makedirs(settings.UPLOAD_DIR, exist_ok=True)
@@ -41,6 +42,11 @@ async def root():
         "status": "running",
         "docs": "/docs"
     }
+
+@app.on_event("startup")
+async def on_startup():
+    async with engine.begin() as conn:
+        await conn.run_sync(Base.metadata.create_all)
 
 @app.get("/health")
 async def health_check():
